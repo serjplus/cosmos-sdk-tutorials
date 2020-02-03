@@ -2,7 +2,7 @@ package haytservice
 
 import (
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/keeper"
-	"github.com/serjplus/sosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
 )
 
 const (
