@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/sdk-tutorials/nameservice/x/nameservice/internal/types"
+	"github.com/serjplus/sdk-tutorials/haytservice/x/haytservice/internal/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/rest"

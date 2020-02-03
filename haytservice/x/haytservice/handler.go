@@ -3,7 +3,7 @@ package haytservice
 import (
 	"fmt"
 
-	"github.com/cosmos/sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
@@ -27,7 +27,7 @@ func NewHandler(keeper Keeper) sdk.Handler {
 }
 */
 
-// NewHandler returns a handler for "nameservice" type messages.
+// NewHandler returns a handler for "haytservice" type messages.
 func NewHandler(keeper Keeper) sdk.Handler {
 	return func(ctx sdk.Context, msg sdk.Msg) sdk.Result {
 		switch msg := msg.(type) {

@@ -17,7 +17,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	app "github.com/cosmos/sdk-tutorials/nameservice"
+	app "github.com/serjplus/cosmos-sdk-tutorials/haytservice"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
@@ -65,7 +65,7 @@ func main() {
 }
 
 func newApp(logger log.Logger, db dbm.DB, traceStore io.Writer) abci.Application {
-	return app.NewNameServiceApp(logger, db, baseapp.SetMinGasPrices(viper.GetString(server.FlagMinGasPrices)))
+	return app.NewHaytServiceApp(logger, db, baseapp.SetMinGasPrices(viper.GetString(server.FlagMinGasPrices)))
 }
 
 func exportAppStateAndTMValidators(
@@ -73,7 +73,7 @@ func exportAppStateAndTMValidators(
 ) (json.RawMessage, []tmtypes.GenesisValidator, error) {
 
 	if height != -1 {
-		nsApp := app.NewNameServiceApp(logger, db)
+		nsApp := app.NewHaytServiceApp(logger, db)
 		err := nsApp.LoadHeight(height)
 		if err != nil {
 			return nil, nil, err
@@ -81,7 +81,7 @@ func exportAppStateAndTMValidators(
 		return nsApp.ExportAppStateAndValidators(forZeroHeight, jailWhiteList)
 	}
 
-	nsApp := app.NewNameServiceApp(logger, db)
+	nsApp := app.NewHaytServiceApp(logger, db)
 
 	return nsApp.ExportAppStateAndValidators(forZeroHeight, jailWhiteList)
 }

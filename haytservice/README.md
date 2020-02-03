@@ -1,6 +1,6 @@
-# Nameservice Application Tutorial
+# HaytService Application Tutorial
 
-In this tutorial we will build a fully-functional nameservice application on a blockchain with the Cosmos SDK
+In this tutorial we will build a fully-functional haytservice application on a blockchain with the Cosmos SDK
 
 
 **[Click here](./tutorial/00-intro.md)** to start the tutorial. You can also view it on the [website](https://tutorials.cosmos.network/).

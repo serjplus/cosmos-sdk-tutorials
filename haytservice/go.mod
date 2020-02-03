@@ -1,4 +1,4 @@
-module github.com/cosmos/sdk-tutorials/nameservice
+module github.com/serjplus/cosmos-sdk-tutorials/haytservice
 
 go 1.13
 

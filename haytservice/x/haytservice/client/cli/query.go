@@ -6,7 +6,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/context"
 	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/sdk-tutorials/nameservice/x/nameservice/internal/types"
+	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
 	"github.com/spf13/cobra"
 )
 
@@ -39,7 +39,7 @@ func GetQueryCmdHayt(storeKey string, cdc *codec.Codec) *cobra.Command {
 		GetCmdWhoisHayt(storeKey, cdc),
 		GetCmdHayts(storeKey, cdc),
 	)...)
-	return nameserviceQueryCmd
+	return haytserviceQueryCmd
 }
 
 // GetCmdResolveName queries information about a name
