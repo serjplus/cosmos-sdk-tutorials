@@ -25,7 +25,7 @@ func NewMsgSetName(name string, value string, owner sdk.AccAddress) MsgSetName {
 	}
 }*/
 
-// NewMsgSetName is a constructor function for MsgSetName
+// NewMsgSetName is a constructor function for MsgSetHayt
 func NewMsgSetHayt(name string, value string, owner sdk.AccAddress, haytownername) MsgSetHayt {
 	return MsgSetHayt{
 		Name:  name,
