@@ -8,8 +8,8 @@ import (
 const RouterKey = ModuleName // this was defined in your key.go file
 
 // MsgSetName defines a SetName message
-type MsgSetName struct {
-	Name  string         `json:"name"`
+type MsgSetHayt struct {
+	Hayt  string         `json:"hayt"`
 	Value string         `json:"value"`
 	Owner sdk.AccAddress `json:"owner"`
 	HaytOwnerName string `json:"haytownername"`
@@ -28,7 +28,7 @@ func NewMsgSetName(name string, value string, owner sdk.AccAddress) MsgSetName {
 // NewMsgSetName is a constructor function for MsgSetHayt
 func NewMsgSetHayt(name string, value string, owner sdk.AccAddress, haytownername) MsgSetHayt {
 	return MsgSetHayt{
-		Name:  name,
+		Hayt:  hayt,
 		Value: value,
 		Owner: owner,
 		HaytOwnerName: haytownername,

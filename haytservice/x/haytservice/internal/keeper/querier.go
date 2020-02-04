@@ -60,7 +60,7 @@ func queryWhois(ctx sdk.Context, path []string, req abci.RequestQuery, keeper Ke
 }
 
 func queryNames(ctx sdk.Context, req abci.RequestQuery, keeper Keeper) ([]byte, sdk.Error) {
-	var namesList types.QueryResNames
+	var namesList types.QueryResHayts
 
 	iterator := keeper.GetNamesIterator(ctx)
 

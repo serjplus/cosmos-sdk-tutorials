@@ -7,35 +7,35 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-var name = "maTurtle"
+var hayt = "maTurtle"
 
-func TestMsgSetName(t *testing.T) {
+func TestMsgSetHayt(t *testing.T) {
 	value := "1"
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgSetName(name, value, acc)
+	var msg = NewMsgSetHayt(hayt, value, acc, haytownername)
 
 	require.Equal(t, msg.Route(), RouterKey)
-	require.Equal(t, msg.Type(), "set_name")
+	require.Equal(t, msg.Type(), "set_hayt")
 }
 
-func TestMsgSetNameValidation(t *testing.T) {
+func TestMsgSetHaytValidation(t *testing.T) {
 	value := "1"
 	acc := sdk.AccAddress([]byte("me"))
-	name2 := "a"
+	hayt2 := "a"
 	value2 := "2"
 	acc2 := sdk.AccAddress([]byte("you"))
 
 	cases := []struct {
 		valid bool
-		tx    MsgSetName
+		tx    MsgSetHayt
 	}{
-		{true, NewMsgSetName(name, value, acc)},
-		{true, NewMsgSetName(name2, value2, acc2)},
-		{true, NewMsgSetName(name2, value, acc2)},
-		{true, NewMsgSetName(name2, value2, acc)},
-		{false, NewMsgSetName(name, value2, nil)},
-		{false, NewMsgSetName("", value2, acc2)},
-		{false, NewMsgSetName(name, "", acc2)},
+		{true, NewMsgSetHayt(hayt, value, acc, haytownername)},
+		{true, NewMsgSetHayt(hayt2, value2, acc2, haytownername)},
+		{true, NewMsgSetHayt(hayt2, value, acc2, haytownername)},
+		{true, NewMsgSetHayt(hayt2, value2, acc)},
+		{false, NewMsgSetHayt(hayt, value2, nil)},
+		{false, NewMsgSetHayt("", value2, acc2)},
+		{false, NewMsgSetHayt(hayt, "", acc2)},
 	}
 
 	for _, tc := range cases {
@@ -52,35 +52,35 @@ func TestMsgSetNameGetSignBytes(t *testing.T) {
 	value := "1"
 	acc := sdk.AccAddress([]byte("me"))
 
-	var msg = NewMsgSetName(name, value, acc)
+	var msg = NewMsgSetHayt(hayt, value, acc, haytownername)
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"nameservice/SetName","value":{"name":"maTurtle","owner":"cosmos1d4js690r9j","value":"1"}}`
+	expected := `{"type":"haytservice/SetHayt","value":{"hayt":"maTurtle","owner":"cosmos1d4js690r9j","value":"1"}}`
 
 	require.Equal(t, expected, string(res))
 }
 
-func TestMsgBuyName(t *testing.T) {
+func TestMsgBuyHayt(t *testing.T) {
 	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgBuyName(name, coins, acc)
+	var msg = NewMsgBuyHayt(hayt, coins, acc)
 
 	require.Equal(t, msg.Route(), RouterKey)
-	require.Equal(t, msg.Type(), "buy_name")
+	require.Equal(t, msg.Type(), "buy_hayt")
 }
 
 func TestMsgBuyNameValidation(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	name2 := "a"
+	hayt2 := "a"
 	acc2 := sdk.AccAddress([]byte("you"))
 	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
 
 	cases := []struct {
 		valid bool
-		tx    MsgBuyName
+		tx    MsgBuyHayt
 	}{
-		{true, NewMsgBuyName(name, coins, acc)},
-		{true, NewMsgBuyName(name2, coins, acc2)},
+		{true, NewMsgBuyHayt(hayt, coins, acc)},
+		{true, NewMsgBuyHayt(hayt2, coins, acc2, haytownername)},
 	}
 
 	for _, tc := range cases {
@@ -96,34 +96,34 @@ func TestMsgBuyNameValidation(t *testing.T) {
 func TestMsgBuyNameGetSignBytes(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
 	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
-	var msg = NewMsgBuyName(name, coins, acc)
+	var msg = NewMsgBuyHayt(hayt, coins, acc)
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"nameservice/BuyName","value":{"bid":[{"amount":"10","denom":"atom"}],` +
-		`"buyer":"cosmos1d4js690r9j","name":"maTurtle"}}`
+	expected := `{"type":"haytservice/BuyHayt","value":{"bid":[{"amount":"10","denom":"atom"}],` +
+		`"buyer":"cosmos1d4js690r9j","hayt":"maTurtle"}}`
 
 	require.Equal(t, expected, string(res))
 }
 
-func TestMsgDeleteName(t *testing.T) {
+func TestMsgDeleteHayt(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgDeleteName(name, acc)
+	var msg = NewMsgDeleteHayt(hayt, acc)
 
 	require.Equal(t, msg.Route(), RouterKey)
-	require.Equal(t, msg.Type(), "delete_name")
+	require.Equal(t, msg.Type(), "delete_hayt")
 }
 
 func TestMsgDeleteNameValidation(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	name2 := "a"
+	hayt2 := "a"
 	acc2 := sdk.AccAddress([]byte("you"))
 
 	cases := []struct {
 		valid bool
-		tx    MsgDeleteName
+		tx    MsgDeleteHayt
 	}{
-		{true, NewMsgDeleteName(name, acc)},
-		{true, NewMsgDeleteName(name2, acc2)},
+		{true, NewMsgDeleteHayt(hayt, acc)},
+		{true, NewMsgDeleteHayt(hayt2, acc2)},
 	}
 
 	for _, tc := range cases {
@@ -138,10 +138,10 @@ func TestMsgDeleteNameValidation(t *testing.T) {
 
 func TestMsgDeleteNameGetSignBytes(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgDeleteName(name, acc)
+	var msg = NewMsgDeleteHayt(hayt, acc)
 	res := msg.GetSignBytes()
 
-	expected := `{"type":"nameservice/DeleteName","value":{"name":"maTurtle","owner":"cosmos1d4js690r9j"}}`
+	expected := `{"type":"haytservice/DeleteHayt","value":{"hayt":"maTurtle","owner":"cosmos1d4js690r9j"}}`
 
 	require.Equal(t, expected, string(res))
 }

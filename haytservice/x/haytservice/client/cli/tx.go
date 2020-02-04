@@ -40,7 +40,7 @@ func GetTxCmd(storeKey string, cdc *codec.Codec) *cobra.Command {
 		RunE:                       client.ValidateCmd,
 	}
 
-	nameserviceTxCmd.AddCommand(client.PostCommands(
+	haytserviceTxCmd.AddCommand(client.PostCommands(
 		GetCmdBuyHayt(cdc),
 		GetCmdSetHayt(cdc),
 		GetCmdDeleteHayt(cdc),
@@ -92,8 +92,7 @@ func GetCmdBuyHayt(cdc *codec.Codec) *cobra.Command {
 			if err != nil {
 				return err
 			}
-
-			msg := types.NewMsgBuyHayt(args[0], coins, cliCtx.GetFromAddress())
+			msg := types.NewMsgBuyHayt(args[0], coins, cliCtx.GetFromAddress(), args[0])
 			err = msg.ValidateBasic()
 			if err != nil {
 				return err
@@ -103,6 +102,7 @@ func GetCmdBuyHayt(cdc *codec.Codec) *cobra.Command {
 		},
 	}
 }
+
 /*
 // GetCmdSetName is the CLI command for sending a SetName transaction
 func GetCmdSetName(cdc *codec.Codec) *cobra.Command {

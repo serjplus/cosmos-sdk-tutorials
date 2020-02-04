@@ -26,18 +26,18 @@ import (
 	return nameserviceQueryCmd
 }*/
 
-func GetQueryCmdHayt(storeKey string, cdc *codec.Codec) *cobra.Command {
-	HaytQueryCmd := &cobra.Command{
+func GetQueryCmd(storeKey string, cdc *codec.Codec) *cobra.Command {
+	HaytServiceQueryCmd := &cobra.Command{
 		Use:                        types.ModuleName,
 		Short:                      "Querying commands for the hayt module",
 		DisableFlagParsing:         true,
 		SuggestionsMinimumDistance: 2,
 		RunE:                       client.ValidateCmd,
 	}
-	HaytQueryCmd.AddCommand(client.GetCommands(
-		GetCmdResolveHayt(storeKey, cdc),
-		GetCmdWhoisHayt(storeKey, cdc),
-		GetCmdHayts(storeKey, cdc),
+	HaytServiceQueryCmd.AddCommand(client.GetCommands(
+		GetCmdResolve(storeKey, cdc),
+		GetCmdWhois(storeKey, cdc),
+		GetCmdNames(storeKey, cdc),
 	)...)
 	return haytserviceQueryCmd
 }
@@ -114,7 +114,7 @@ func GetCmdResolveHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 // GetCmdWhoisHayt queries information about a Hayt
 func GetCmdWhoisHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 	return &cobra.Command{
-		Use:   "whois [hayt]",
+		Use:   "whoishayt [hayt]",
 		Short: "Query whois info of hayt",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -123,7 +123,7 @@ func GetCmdWhoisHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 
 			res, _, err := cliCtx.QueryWithData(fmt.Sprintf("custom/%s/whois/%s", queryRoute, hayt), nil)
 			if err != nil {
-				fmt.Printf("could not resolve whois - %s \n", hayt)
+				fmt.Printf("could not resolve whoishayt - %s \n", hayt)
 				return nil
 			}
 

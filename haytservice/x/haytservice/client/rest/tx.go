@@ -11,16 +11,16 @@ import (
 	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
 )
 
-type buyNameReq struct {
+type buyHaytReq struct {
 	BaseReq rest.BaseReq `json:"base_req"`
-	Name    string       `json:"name"`
+	Hayt    string       `json:"name"`
 	Amount  string       `json:"amount"`
 	Buyer   string       `json:"buyer"`
 }
 
 func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req buyNameReq
+		var req buyHaytReq
 
 		if !rest.ReadRESTReq(w, r, cliCtx.Codec, &req) {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, "failed to parse request")
@@ -45,7 +45,7 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgBuyName(req.Name, coins, addr)
+		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, req.HaytOwnerName)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
@@ -120,7 +120,7 @@ func deleteNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgDeleteName(req.Name, addr)
+		msg := types.NewMsgDeleteHayt(req.Name, addr)
 		err = msg.ValidateBasic()
 		if err := msg.ValidateBasic(); err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
