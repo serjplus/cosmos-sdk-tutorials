@@ -12,7 +12,7 @@ var hayt = "maTurtle"
 func TestMsgSetHayt(t *testing.T) {
 	value := "1"
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgSetHayt(hayt, value, acc, haytownername)
+	var msg = NewMsgSetHayt(hayt, value, acc)
 
 	require.Equal(t, msg.Route(), RouterKey)
 	require.Equal(t, msg.Type(), "set_hayt")
@@ -29,9 +29,9 @@ func TestMsgSetHaytValidation(t *testing.T) {
 		valid bool
 		tx    MsgSetHayt
 	}{
-		{true, NewMsgSetHayt(hayt, value, acc, haytownername)},
-		{true, NewMsgSetHayt(hayt2, value2, acc2, haytownername)},
-		{true, NewMsgSetHayt(hayt2, value, acc2, haytownername)},
+		{true, NewMsgSetHayt(hayt, value, acc)},
+		{true, NewMsgSetHayt(hayt2, value2, acc2)},
+		{true, NewMsgSetHayt(hayt2, value, acc2)},
 		{true, NewMsgSetHayt(hayt2, value2, acc)},
 		{false, NewMsgSetHayt(hayt, value2, nil)},
 		{false, NewMsgSetHayt("", value2, acc2)},
@@ -52,7 +52,7 @@ func TestMsgSetNameGetSignBytes(t *testing.T) {
 	value := "1"
 	acc := sdk.AccAddress([]byte("me"))
 
-	var msg = NewMsgSetHayt(hayt, value, acc, haytownername)
+	var msg = NewMsgSetHayt(hayt, value, acc)
 	res := msg.GetSignBytes()
 
 	expected := `{"type":"haytservice/SetHayt","value":{"hayt":"maTurtle","owner":"cosmos1d4js690r9j","value":"1"}}`
@@ -80,7 +80,7 @@ func TestMsgBuyNameValidation(t *testing.T) {
 		tx    MsgBuyHayt
 	}{
 		{true, NewMsgBuyHayt(hayt, coins, acc)},
-		{true, NewMsgBuyHayt(hayt2, coins, acc2, haytownername)},
+		{true, NewMsgBuyHayt(hayt2, coins, acc2)},
 	}
 
 	for _, tc := range cases {

@@ -9,10 +9,10 @@ const RouterKey = ModuleName // this was defined in your key.go file
 
 // MsgSetName defines a SetName message
 type MsgSetHayt struct {
-	Hayt  string         `json:"hayt"`
-	Value string         `json:"value"`
-	Owner sdk.AccAddress `json:"owner"`
-	HaytOwnerName string `json:"haytownername"`
+	Hayt          string         `json:"hayt"`
+	Value         string         `json:"value"`
+	Owner         sdk.AccAddress `json:"owner"`
+	HaytOwnerName string         `json:"haytownername"`
 }
 
 /*
@@ -25,12 +25,12 @@ func NewMsgSetName(name string, value string, owner sdk.AccAddress) MsgSetName {
 	}
 }*/
 
-// NewMsgSetName is a constructor function for MsgSetHayt
-func NewMsgSetHayt(name string, value string, owner sdk.AccAddress, haytownername) MsgSetHayt {
+// NewMsgSetHayt is a constructor function for MsgSetHayt
+func NewMsgSetHayt(name string, value string, owner sdk.AccAddress) MsgSetHayt {
 	return MsgSetHayt{
-		Hayt:  hayt,
-		Value: value,
-		Owner: owner,
+		Hayt:          hayt,
+		Value:         value,
+		Owner:         owner,
 		HaytOwnerName: haytownername,
 	}
 }
@@ -49,7 +49,6 @@ func (msg MsgSetName) Type() string { return "set_name" }
 
 // Type should return the action
 func (msg MsgSetHayt) Type() string { return "set_hayt" }
-
 
 /*
 // ValidateBasic runs stateless checks on the message
@@ -109,10 +108,10 @@ type MsgBuyName struct {
 
 // MsgBuyHayt defines the BuyHayt message
 type MsgBuyHayt struct {
-	Hayt  string         `json:"hayt"`
-	Bid   sdk.Coins      `json:"bid"`
-	Buyer sdk.AccAddress `json:"buyer"`
-	HaytOwnerName string `json:"haytownername"`
+	Hayt          string         `json:"hayt"`
+	Bid           sdk.Coins      `json:"bid"`
+	Buyer         sdk.AccAddress `json:"buyer"`
+	HaytOwnerName string         `json:"haytownername"`
 }
 
 /*
@@ -126,11 +125,11 @@ func NewMsgBuyName(name string, bid sdk.Coins, buyer sdk.AccAddress) MsgBuyName 
 }*/
 
 // NewMsgBuyHayt is the constructor function for MsgBuyHayt
-func NewMsgBuyHayt(hayt string, bid sdk.Coins, buyer sdk.AccAddress,haytownername string) MsgBuyHayt {
+func NewMsgBuyHayt(hayt string, bid sdk.Coins, buyer sdk.AccAddress, haytownername string) MsgBuyHayt {
 	return MsgBuyHayt{
-		Hayt:  hayt,
-		Bid:   bid,
-		Buyer: buyer,
+		Hayt:          hayt,
+		Bid:           bid,
+		Buyer:         buyer,
 		HaytOwnerName: haytownername,
 	}
 }
@@ -210,14 +209,14 @@ func (msg MsgBuyHayt) GetSigners() []sdk.AccAddress {
 // MsgDeleteName defines a DeleteName message
 type MsgDeleteName struct {
 	Name  string         `json:"name"`
-	Owner sdk.AccAddress `json:"owner"`	
+	Owner sdk.AccAddress `json:"owner"`
 }*/
 
 // MsgDeleteHayt defines a DeleteHayt message
 type MsgDeleteHayt struct {
-	Hayt  string         `json:"hayt"`
-	Owner sdk.AccAddress `json:"owner"`
-	HaytOwnerName string `json:"haytownername"`	
+	Hayt          string         `json:"hayt"`
+	Owner         sdk.AccAddress `json:"owner"`
+	HaytOwnerName string         `json:"haytownername"`
 }
 
 /*
@@ -232,8 +231,8 @@ func NewMsgDeleteName(name string, owner sdk.AccAddress) MsgDeleteName {
 // NewMsgDeleteHayt is a constructor function for MsgDeleteHayt
 func NewMsgDeleteHayt(hayt string, owner sdk.AccAddress) MsgDeleteHayt {
 	return MsgDeleteHayt{
-		Hayt:  hayt,
-		Owner: owner,
+		Hayt:          hayt,
+		Owner:         owner,
 		HaytOwnerName: haytownername,
 	}
 }

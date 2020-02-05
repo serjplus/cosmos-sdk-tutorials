@@ -8,7 +8,7 @@ import (
 )
 
 // MinNamePrice is Initial Starting Price for a Hayt that was never previously owned
-var MinNamePrice = sdk.Coins{sdk.NewInt64Coin("verotoken", 1)}
+var MinHaytPrice = sdk.Coins{sdk.NewInt64Coin("verotoken", 1)}
 
 /*
 // Whois is a struct that contains all the metadata of a name
@@ -20,10 +20,10 @@ type Whois struct {
 
 // Whois is a struct that contains all the metadata of a Hayt
 type Whois struct {
-	Value string         `json:"value"`
-	Owner sdk.AccAddress `json:"owner"`
-	Price sdk.Coins      `json:"price"`
-	HaytOwnerName string `json:"haytownername"`
+	Value         string         `json:"value"`
+	Owner         sdk.AccAddress `json:"owner"`
+	Price         sdk.Coins      `json:"price"`
+	HaytOwnerName string         `json:"haytownername"`
 }
 
 /*
