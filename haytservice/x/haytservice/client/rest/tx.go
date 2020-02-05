@@ -12,10 +12,11 @@ import (
 )
 
 type buyHaytReq struct {
-	BaseReq rest.BaseReq `json:"base_req"`
-	Hayt    string       `json:"name"`
-	Amount  string       `json:"amount"`
-	Buyer   string       `json:"buyer"`
+	BaseReq       rest.BaseReq `json:"base_req"`
+	Hayt          string       `json:"hayt"`
+	Amount        string       `json:"amount"`
+	Buyer         string       `json:"buyer"`
+	HaytOwnerName string       `json:"haytownername"`
 }
 
 func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
@@ -45,7 +46,7 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, req.HaytOwnerName)
+		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, haytownername)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())

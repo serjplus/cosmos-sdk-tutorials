@@ -35,9 +35,9 @@ func GetQueryCmd(storeKey string, cdc *codec.Codec) *cobra.Command {
 		RunE:                       client.ValidateCmd,
 	}
 	HaytServiceQueryCmd.AddCommand(client.GetCommands(
-		GetCmdResolve(storeKey, cdc),
-		GetCmdWhois(storeKey, cdc),
-		GetCmdNames(storeKey, cdc),
+		GetCmdResolveHayt(storeKey, cdc),
+		GetCmdWhoisHayt(storeKey, cdc),
+		GetCmdHayts(storeKey, cdc),
 	)...)
 	return haytserviceQueryCmd
 }
@@ -81,7 +81,7 @@ func GetCmdResolveHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 				return nil
 			}
 
-			var out types.QueryResResolveHayt
+			var out types.QueryResResolve
 			cdc.MustUnmarshalJSON(res, &out)
 			return cliCtx.PrintOutput(out)
 		},
