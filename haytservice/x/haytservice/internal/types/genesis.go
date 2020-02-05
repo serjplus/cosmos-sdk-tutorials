@@ -23,7 +23,7 @@ func ValidateGenesis(data GenesisState) error {
 		if record.Price == nil {
 			return fmt.Errorf("invalid WhoisRecord: Value: %s. Error: Missing Price", record.Value)
 		}
-		if record.HaytOwnerName == nil {
+		if record.HaytOwnerName == "" {
 			return fmt.Errorf("invalid WhoisRecord: Value: %s. Error: Missing HaytOwnerName", record.Value)
 		}
 	}
@@ -35,5 +35,3 @@ func DefaultGenesisState() GenesisState {
 		WhoisRecords: []Whois{},
 	}
 }
-
-

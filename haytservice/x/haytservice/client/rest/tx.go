@@ -84,7 +84,7 @@ func setNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgSetName(req.Name, req.Value, addr)
+		msg := types.NewMsgSetHayt(req.Name, req.Value, addr)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())

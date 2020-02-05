@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 )
 
-// MinNamePrice is Initial Starting Price for a Hayt that was never previously owned
+// MinHaytPrice is Initial Starting Price for a Hayt that was never previously owned
 var MinHaytPrice = sdk.Coins{sdk.NewInt64Coin("verotoken", 1)}
 
 /*
