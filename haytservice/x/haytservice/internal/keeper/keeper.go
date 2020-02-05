@@ -26,7 +26,7 @@ func NewKeeper(coinKeeper bank.Keeper, storeKey sdk.StoreKey, cdc *codec.Codec) 
 }
 
 // Gets the entire Whois metadata struct for a name
-func (k Keeper) GetWhois(ctx sdk.Context, name string) types.Whois {
+func (k Keeper) GetWhois(ctx sdk.Context, hayt string) types.Whois {
 	store := ctx.KVStore(k.storeKey)
 	if !k.IsNamePresent(ctx, name) {
 		return types.NewWhois()
@@ -38,7 +38,7 @@ func (k Keeper) GetWhois(ctx sdk.Context, name string) types.Whois {
 }
 
 // Sets the entire Whois metadata struct for a name
-func (k Keeper) SetWhois(ctx sdk.Context, name string, whois types.Whois) {
+func (k Keeper) SetWhois(ctx sdk.Context, hayt string, whois types.Whois) {
 	if whois.Owner.Empty() {
 		return
 	}
@@ -47,60 +47,60 @@ func (k Keeper) SetWhois(ctx sdk.Context, name string, whois types.Whois) {
 }
 
 // Deletes the entire Whois metadata struct for a name
-func (k Keeper) DeleteWhois(ctx sdk.Context, name string) {
+func (k Keeper) DeleteWhois(ctx sdk.Context, hayt string) {
 	store := ctx.KVStore(k.storeKey)
 	store.Delete([]byte(name))
 }
 
-// ResolveName - returns the string that the name resolves to
-func (k Keeper) ResolveName(ctx sdk.Context, name string) string {
-	return k.GetWhois(ctx, name).Value
+// ResolveName - returns the string that the hayt resolves to
+func (k Keeper) ResolveName(ctx sdk.Context, hayt string) string {
+	return k.GetWhois(ctx, hayt).Value
 }
 
-// SetName - sets the value string that a name resolves to
-func (k Keeper) SetName(ctx sdk.Context, name string, value string) {
-	whois := k.GetWhois(ctx, name)
+// SetHayt - sets the value string that a hayt resolves to
+func (k Keeper) SetHayt(ctx sdk.Context, hayt string, value string) {
+	whois := k.GetWhois(ctx, hayt)
 	whois.Value = value
-	k.SetWhois(ctx, name, whois)
+	k.SetWhois(ctx, hayt, whois)
 }
 
-// HasOwner - returns whether or not the name already has an owner
-func (k Keeper) HasOwner(ctx sdk.Context, name string) bool {
-	return !k.GetWhois(ctx, name).Owner.Empty()
+// HasOwner - returns whether or not the hayt already has an owner
+func (k Keeper) HasOwner(ctx sdk.Context, hayt string) bool {
+	return !k.GetWhois(ctx, hayt).Owner.Empty()
 }
 
-// GetOwner - get the current owner of a name
-func (k Keeper) GetOwner(ctx sdk.Context, name string) sdk.AccAddress {
-	return k.GetWhois(ctx, name).Owner
+// GetOwner - get the current owner of a hayt
+func (k Keeper) GetOwner(ctx sdk.Context, hayt string) sdk.AccAddress {
+	return k.GetWhois(ctx, hayt).Owner
 }
 
-// SetOwner - sets the current owner of a name
-func (k Keeper) SetOwner(ctx sdk.Context, name string, owner sdk.AccAddress) {
-	whois := k.GetWhois(ctx, name)
+// SetOwner - sets the current owner of a hayt
+func (k Keeper) SetOwner(ctx sdk.Context, hayt string, owner sdk.AccAddress) {
+	whois := k.GetWhois(ctx, hayt)
 	whois.Owner = owner
-	k.SetWhois(ctx, name, whois)
+	k.SetWhois(ctx, hayt, whois)
 }
 
-// GetPrice - gets the current price of a name
-func (k Keeper) GetPrice(ctx sdk.Context, name string) sdk.Coins {
-	return k.GetWhois(ctx, name).Price
+// GetPrice - gets the current price of a hayt
+func (k Keeper) GetPrice(ctx sdk.Context, hayt string) sdk.Coins {
+	return k.GetWhois(ctx, hayt).Price
 }
 
-// SetPrice - sets the current price of a name
-func (k Keeper) SetPrice(ctx sdk.Context, name string, price sdk.Coins) {
-	whois := k.GetWhois(ctx, name)
+// SetPrice - sets the current price of a hayt
+func (k Keeper) SetPrice(ctx sdk.Context, hayt string, price sdk.Coins) {
+	whois := k.GetWhois(ctx, hayt)
 	whois.Price = price
-	k.SetWhois(ctx, name, whois)
+	k.SetWhois(ctx, hayt, whois)
 }
 
-// Get an iterator over all names in which the keys are the names and the values are the whois
+// Get an iterator over all hayts in which the keys are the hayts and the values are the whois
 func (k Keeper) GetNamesIterator(ctx sdk.Context) sdk.Iterator {
 	store := ctx.KVStore(k.storeKey)
 	return sdk.KVStorePrefixIterator(store, nil)
 }
 
 // Check if the name is present in the store or not
-func (k Keeper) IsNamePresent(ctx sdk.Context, name string) bool {
+func (k Keeper) IsNamePresent(ctx sdk.Context, hayt string) bool {
 	store := ctx.KVStore(k.storeKey)
-	return store.Has([]byte(name))
+	return store.Has([]byte(hayt))
 }
