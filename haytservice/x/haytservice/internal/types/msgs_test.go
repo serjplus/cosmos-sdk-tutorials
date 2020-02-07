@@ -96,7 +96,7 @@ func TestMsgBuyNameValidation(t *testing.T) {
 func TestMsgBuyNameGetSignBytes(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
 	coins := sdk.NewCoins(sdk.NewInt64Coin("atom", 10))
-	var msg = NewMsgBuyHayt(hayt, coins, acc)
+	var msg = NewMsgBuyHayt(hayt, coins, acc, haytownername)
 	res := msg.GetSignBytes()
 
 	expected := `{"type":"haytservice/BuyHayt","value":{"bid":[{"amount":"10","denom":"atom"}],` +

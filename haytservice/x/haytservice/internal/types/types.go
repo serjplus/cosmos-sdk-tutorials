@@ -37,7 +37,7 @@ func NewWhois() Whois {
 // NewWhois returns a new Whois with the minprice as the price
 func NewWhois() Whois {
 	return Whois{
-		Price: MinHaytPrice,
+		Price: MinNamePrice,
 	}
 }
 

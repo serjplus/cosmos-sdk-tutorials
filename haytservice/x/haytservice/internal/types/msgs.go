@@ -1,13 +1,13 @@
 package types
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 )
 
 // RouterKey is the module name router key
 const RouterKey = ModuleName // this was defined in your key.go file
 
-// MsgSetName defines a SetName message
+// MsgSetHayt defines a SetHayt message
 type MsgSetHayt struct {
 	Hayt          string         `json:"hayt"`
 	Value         string         `json:"value"`
@@ -26,7 +26,7 @@ func NewMsgSetName(name string, value string, owner sdk.AccAddress) MsgSetName {
 }*/
 
 // NewMsgSetHayt is a constructor function for MsgSetHayt
-func NewMsgSetHayt(name string, value string, owner sdk.AccAddress) MsgSetHayt {
+func NewMsgSetHayt(hayt string, value string, owner sdk.AccAddress, haytownername string) MsgSetHayt {
 	return MsgSetHayt{
 		Hayt:          hayt,
 		Value:         value,

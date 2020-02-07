@@ -27,19 +27,19 @@ import (
 }*/
 
 func GetQueryCmd(storeKey string, cdc *codec.Codec) *cobra.Command {
-	NameServiceQueryCmd := &cobra.Command{
+	HaytServiceQueryCmd := &cobra.Command{
 		Use:                        types.ModuleName,
 		Short:                      "Querying commands for the hayt module",
 		DisableFlagParsing:         true,
 		SuggestionsMinimumDistance: 2,
 		RunE:                       client.ValidateCmd,
 	}
-	NameServiceQueryCmd.AddCommand(client.GetCommands(
+	HaytServiceQueryCmd.AddCommand(client.GetCommands(
 		GetCmdResolveHayt(storeKey, cdc),
 		GetCmdWhoisHayt(storeKey, cdc),
 		GetCmdHayts(storeKey, cdc),
 	)...)
-	return nameserviceQueryCmd
+	return haytserviceQueryCmd
 }
 
 // GetCmdResolveName queries information about a name
@@ -127,7 +127,7 @@ func GetCmdWhoisHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 				return nil
 			}
 
-			var out types.Whois
+			var out types.WhoisHayt
 			cdc.MustUnmarshalJSON(res, &out)
 			return cliCtx.PrintOutput(out)
 		},

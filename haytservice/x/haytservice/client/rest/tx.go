@@ -46,7 +46,7 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, haytownername)
+		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, req.haytownername)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
@@ -57,16 +57,16 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	}
 }
 
-type setNameReq struct {
+type setHaytReq struct {
 	BaseReq rest.BaseReq `json:"base_req"`
-	Name    string       `json:"name"`
+	Hayt    string       `json:"hayt"`
 	Value   string       `json:"value"`
 	Owner   string       `json:"owner"`
 }
 
-func setNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
+func setHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req setNameReq
+		var req setHaytReq
 		if !rest.ReadRESTReq(w, r, cliCtx.Codec, &req) {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, "failed to parse request")
 			return
@@ -84,7 +84,7 @@ func setNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgSetHayt(req.Name, req.Value, addr)
+		msg := types.NewMsgSetHayt(req.Hayt, req.Value, addr)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
@@ -95,15 +95,15 @@ func setNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	}
 }
 
-type deleteNameReq struct {
+type deleteHaytReq struct {
 	BaseReq rest.BaseReq `json:"base_req"`
-	Name    string       `json:"name"`
+	Hayt    string       `json:"hayt"`
 	Owner   string       `json:"owner"`
 }
 
-func deleteNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
+func deleteHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req deleteNameReq
+		var req deleteHaytReq
 		if !rest.ReadRESTReq(w, r, cliCtx.Codec, &req) {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, "failed to parse request")
 			return
