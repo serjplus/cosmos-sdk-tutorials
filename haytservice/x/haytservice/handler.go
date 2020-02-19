@@ -5,8 +5,9 @@ import (
 
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
 
-	sdk "github.com/serjplus/cosmos-sdk/types"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 )
+
 //###############################################################################################
 /*
 // NewHandler returns a handler for "nameservice" type messages.
@@ -43,6 +44,7 @@ func NewHandler(keeper Keeper) sdk.Handler {
 		}
 	}
 }
+
 //##########################################################################################################
 /*
 // Handle a message to set name
@@ -123,7 +125,6 @@ func handleMsgDeleteName(ctx sdk.Context, keeper Keeper, msg MsgDeleteName) sdk.
 	keeper.DeleteWhois(ctx, msg.Name)
 	return sdk.Result{}
 }*/
-
 
 // Handle a message to delete Hayt
 func handleMsgDeleteHayt(ctx sdk.Context, keeper Keeper, msg MsgDeleteHayt) sdk.Result {
