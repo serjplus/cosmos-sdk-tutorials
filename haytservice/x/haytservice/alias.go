@@ -26,9 +26,9 @@ var (
 var (
 	NewKeeper        = keeper.NewKeeper
 	NewQuerier       = keeper.NewQuerier
-	NewMsgBuyName    = types.NewMsgBuyHayt
-	NewMsgSetName    = types.NewMsgSetHayt
-	NewMsgDeleteName = types.NewMsgDeleteHayt
+	NewMsgBuyHayt    = types.NewMsgBuyHayt
+	NewMsgSetHayt    = types.NewMsgSetHayt
+	NewMsgDeleteHayt = types.NewMsgDeleteHayt
 	NewWhois         = types.NewWhois
 	ModuleCdc        = types.ModuleCdc
 	RegisterCodec    = types.RegisterCodec
@@ -43,7 +43,7 @@ type (
 	QueryResResolve = types.QueryResResolve
 	QueryResNames   = types.QueryResNames
 	Whois           = types.Whois
-)*/
+*/
 
 type (
 	Keeper          = keeper.Keeper
