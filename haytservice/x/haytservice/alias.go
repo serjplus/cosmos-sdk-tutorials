@@ -10,6 +10,7 @@ const (
 	RouterKey  = types.RouterKey
 	StoreKey   = types.StoreKey
 )
+
 /*
 var (
 	NewKeeper        = keeper.NewKeeper
@@ -51,5 +52,5 @@ type (
 	MsgDeleteHayt   = types.MsgDeleteHayt
 	QueryResResolve = types.QueryResResolve
 	QueryResHayts   = types.QueryResHayts
-	Whois          = types.Whois
+	Whois           = types.Whois
 )
