@@ -79,8 +79,8 @@ func TestMsgBuyNameValidation(t *testing.T) {
 		valid bool
 		tx    MsgBuyHayt
 	}{
-		{true, NewMsgBuyHayt(hayt, coins, acc)},
-		{true, NewMsgBuyHayt(hayt2, coins, acc2)},
+		{true, NewMsgBuyHayt(hayt, coins, acc, haytownername)},
+		{true, NewMsgBuyHayt(hayt2, coins, acc2, haytownername)},
 	}
 
 	for _, tc := range cases {

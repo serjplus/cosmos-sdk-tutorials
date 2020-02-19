@@ -46,7 +46,7 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, req.haytownername)
+		msg := types.NewMsgBuyHayt(req.Hayt, coins, addr, req.HaytOwnerName)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())

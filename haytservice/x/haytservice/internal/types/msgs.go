@@ -220,7 +220,6 @@ type MsgDeleteHayt struct {
 }
 
 /*
-// NewMsgDeleteName is a constructor function for MsgDeleteName
 func NewMsgDeleteName(name string, owner sdk.AccAddress) MsgDeleteName {
 	return MsgDeleteName{
 		Name:  name,
@@ -229,7 +228,7 @@ func NewMsgDeleteName(name string, owner sdk.AccAddress) MsgDeleteName {
 }*/
 
 // NewMsgDeleteHayt is a constructor function for MsgDeleteHayt
-func NewMsgDeleteHayt(hayt string, owner sdk.AccAddress) MsgDeleteHayt {
+func NewMsgDeleteHayt(hayt string, owner sdk.AccAddress, haytownername string) MsgDeleteHayt {
 	return MsgDeleteHayt{
 		Hayt:          hayt,
 		Owner:         owner,
