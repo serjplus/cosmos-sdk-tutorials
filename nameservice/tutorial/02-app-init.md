@@ -18,9 +18,9 @@ In `app.go` it is defined what the application does when it receives a transacti
 Links to godocs for each module and package imported:
 
 - [`log`](https://godoc.org/github.com/tendermint/tendermint/libs/log): Tendermint's logger.
-- [`auth`](https://godoc.org/github.com/cosmos/cosmos-sdk/x/auth): The `auth` module for the Cosmos SDK.
+- [`auth`](https://godoc.org/github.com/serjplus/cosmos-sdk/x/auth): The `auth` module for the Cosmos SDK.
 - [`dbm`](https://godoc.org/github.com/tendermint/tm-db): Code for working with the Tendermint database.
-- [`baseapp`](https://godoc.org/github.com/cosmos/cosmos-sdk/baseapp): See below
+- [`baseapp`](https://godoc.org/github.com/serjplus/cosmos-sdk/baseapp): See below
 
 A couple of the packages here are `tendermint` packages. Tendermint passes transactions from the network to the application through an interface called the [ABCI](https://docs.tendermint.com/master/spec/abci/). If you look at the architecture of the blockchain node you are building, it looks like the following:
 
@@ -42,7 +42,7 @@ A couple of the packages here are `tendermint` packages. Tendermint passes trans
 +---------------------+
 ```
 
-Fortunately, you do not have to implement the ABCI interface. The Cosmos SDK provides a boilerplate implementation of it in the form of [`baseapp`](https://godoc.org/github.com/cosmos/cosmos-sdk/baseapp).
+Fortunately, you do not have to implement the ABCI interface. The Cosmos SDK provides a boilerplate implementation of it in the form of [`baseapp`](https://godoc.org/github.com/serjplus/cosmos-sdk/baseapp).
 
 Here is what `baseapp` does:
 

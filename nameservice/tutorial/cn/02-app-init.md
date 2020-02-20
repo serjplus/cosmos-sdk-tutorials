@@ -13,19 +13,19 @@ import (
 
 	"github.com/tendermint/tendermint/libs/log"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/x/auth"
+	"github.com/serjplus/cosmos-sdk/codec"
+	"github.com/serjplus/cosmos-sdk/x/auth"
 
-	"github.com/cosmos/cosmos-sdk/x/auth/genaccounts"
+	"github.com/serjplus/cosmos-sdk/x/auth/genaccounts"
 
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	distr "github.com/cosmos/cosmos-sdk/x/distribution"
-	"github.com/cosmos/cosmos-sdk/x/params"
-	"github.com/cosmos/cosmos-sdk/x/staking"
+	"github.com/serjplus/cosmos-sdk/x/bank"
+	distr "github.com/serjplus/cosmos-sdk/x/distribution"
+	"github.com/serjplus/cosmos-sdk/x/params"
+	"github.com/serjplus/cosmos-sdk/x/staking"
 	"github.com/cosmos/sdk-tutorials/nameservice/x/nameservice"
 
-	bam "github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	bam "github.com/serjplus/cosmos-sdk/baseapp"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 	dbm "github.com/tendermint/tm-db"
 )
@@ -34,9 +34,9 @@ import (
 下面是各引入模块和包的文档：
 
 - [`log`](https://godoc.org/github.com/tendermint/tendermint/libs/log): Tendermint 的日志
-- [`auth`](https://godoc.org/github.com/cosmos/cosmos-sdk/x/auth): Cosmos SDK 的`auth`模块
+- [`auth`](https://godoc.org/github.com/serjplus/cosmos-sdk/x/auth): Cosmos SDK 的`auth`模块
 - [`dbm`](https://godoc.org/github.com/tendermint/tm-db): Tendermint 的数据库代码
-- [`baseapp`](https://godoc.org/github.com/cosmos/cosmos-sdk/baseapp): 如下
+- [`baseapp`](https://godoc.org/github.com/serjplus/cosmos-sdk/baseapp): 如下
 
 这里有几个包是`tendermint`包。Tendermint 通过名为 [ABCI](https://github.com/tendermint/tendermint/tree/master/abci) 的接口将交易从网络传递给应用程序。如果你要查看正在构建的区块链节点的架构，如下所示：
 
@@ -58,7 +58,7 @@ import (
 +---------------------+
 ```
 
-幸运的是，你不必实现ABCI接口。Cosmos SDK以[`baseapp`](https://godoc.org/github.com/cosmos/cosmos-sdk/baseapp)的形式提供了它的实现样板。
+幸运的是，你不必实现ABCI接口。Cosmos SDK以[`baseapp`](https://godoc.org/github.com/serjplus/cosmos-sdk/baseapp)的形式提供了它的实现样板。
 
 `baseapp`做了以下几点：
 

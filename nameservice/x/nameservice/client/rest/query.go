@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
+	"github.com/serjplus/cosmos-sdk/client/context"
 
-	"github.com/cosmos/cosmos-sdk/types/rest"
+	"github.com/serjplus/cosmos-sdk/types/rest"
 
 	"github.com/gorilla/mux"
 )

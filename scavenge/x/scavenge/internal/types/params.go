@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/x/params"
+	"github.com/serjplus/cosmos-sdk/x/params"
 )
 
 // Default parameter namespace
@@ -46,6 +46,5 @@ func (p *Params) ParamSetPairs() params.ParamSetPairs {
 
 // DefaultParams defines the parameters for this module
 func DefaultParams() Params {
-	return NewParams(
-	)
+	return NewParams()
 }

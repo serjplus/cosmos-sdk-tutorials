@@ -1,8 +1,8 @@
 package scavenge
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/okwme/scavenge/x/scavenge/internal/types"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 )
 
 // InitGenesis initialize default parameters

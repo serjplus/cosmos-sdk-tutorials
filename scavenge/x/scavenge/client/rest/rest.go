@@ -3,7 +3,7 @@ package rest
 import (
 	"github.com/gorilla/mux"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
+	"github.com/serjplus/cosmos-sdk/client/context"
 )
 
 // RegisterRoutes registers scavenge-related REST handlers to a router

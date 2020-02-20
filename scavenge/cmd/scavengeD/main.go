@@ -12,13 +12,13 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cosmos/cosmos-sdk/store"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	"github.com/cosmos/cosmos-sdk/x/staking"
+	"github.com/serjplus/cosmos-sdk/baseapp"
+	"github.com/serjplus/cosmos-sdk/server"
+	"github.com/serjplus/cosmos-sdk/store"
+	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/serjplus/cosmos-sdk/x/auth"
+	genutilcli "github.com/serjplus/cosmos-sdk/x/genutil/client/cli"
+	"github.com/serjplus/cosmos-sdk/x/staking"
 
 	app "github.com/okwme/scavenge/app"
 )
