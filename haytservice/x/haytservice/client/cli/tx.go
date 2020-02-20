@@ -3,13 +3,13 @@ package cli
 import (
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk/client"
+	"github.com/serjplus/cosmos-sdk/client/context"
+	"github.com/serjplus/cosmos-sdk/codec"
+	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/serjplus/cosmos-sdk/x/auth"
+	"github.com/serjplus/cosmos-sdk/x/auth/client/utils"
 )
 
 /*
@@ -134,7 +134,7 @@ func GetCmdSetName(cdc *codec.Codec) *cobra.Command {
 // GetCmdSetHayt is the CLI command for sending a SetName transaction
 func GetCmdSetHayt(cdc *codec.Codec) *cobra.Command {
 	return &cobra.Command{
-		Use:   "set-hayt [name] [value]",
+		Use:   "set-hayt [haytname] [value]",
 		Short: "set the value associated with a hayt that you own",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -146,7 +146,7 @@ func GetCmdSetHayt(cdc *codec.Codec) *cobra.Command {
 			// 	return err
 			// }
 
-			msg := types.NewMsgSetHayt(args[0], args[1], cliCtx.GetFromAddress())
+			msg := types.NewMsgSetHayt(args[0], args[1], cliCtx.GetFromAddress(), args[3])
 			err := msg.ValidateBasic()
 			if err != nil {
 				return err
@@ -185,13 +185,13 @@ func GetCmdDeleteName(cdc *codec.Codec) *cobra.Command {
 // GetCmdDeleteHayt is the CLI command for sending a DeleteHayt transaction
 func GetCmdDeleteHayt(cdc *codec.Codec) *cobra.Command {
 	return &cobra.Command{
-		Use:   "delete-hayt [name]",
+		Use:   "delete-hayt [haytname]",
 		Short: "delete the hayt that you own along with it's associated fields",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cliCtx := context.NewCLIContext().WithCodec(cdc)
 			txBldr := auth.NewTxBuilderFromCLI().WithTxEncoder(utils.GetTxEncoder(cdc))
-			msg := types.NewMsgDeleteHayt(args[0], cliCtx.GetFromAddress())
+			msg := types.NewMsgDeleteHayt(args[0], cliCtx.GetFromAddress(), args[3])
 			err := msg.ValidateBasic()
 			if err != nil {
 				return err

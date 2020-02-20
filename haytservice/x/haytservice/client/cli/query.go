@@ -3,10 +3,10 @@ package cli
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/context"
-	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk/client"
+	"github.com/serjplus/cosmos-sdk/client/context"
+	"github.com/serjplus/cosmos-sdk/codec"
 	"github.com/spf13/cobra"
 )
 
@@ -36,10 +36,10 @@ func GetQueryCmd(storeKey string, cdc *codec.Codec) *cobra.Command {
 	}
 	HaytServiceQueryCmd.AddCommand(client.GetCommands(
 		GetCmdResolveHayt(storeKey, cdc),
-		GetCmdWhoisHayt(storeKey, cdc),
+		GetCmdWhois(storeKey, cdc),
 		GetCmdHayts(storeKey, cdc),
 	)...)
-	return haytserviceQueryCmd
+	return HaytServiceQueryCmd
 }
 
 // GetCmdResolveName queries information about a name
@@ -111,10 +111,10 @@ func GetCmdResolveHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 	}
 }*/
 
-// GetCmdWhoisHayt queries information about a Hayt
-func GetCmdWhoisHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
+// GetCmdWhois queries information about a Hayt
+func GetCmdWhois(queryRoute string, cdc *codec.Codec) *cobra.Command {
 	return &cobra.Command{
-		Use:   "whoishayt [hayt]",
+		Use:   "whois [hayt]",
 		Short: "Query whois info of hayt",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -123,11 +123,10 @@ func GetCmdWhoisHayt(queryRoute string, cdc *codec.Codec) *cobra.Command {
 
 			res, _, err := cliCtx.QueryWithData(fmt.Sprintf("custom/%s/whois/%s", queryRoute, hayt), nil)
 			if err != nil {
-				fmt.Printf("could not resolve whoishayt - %s \n", hayt)
+				fmt.Printf("could not resolve hayt - %s \n", hayt)
 				return nil
 			}
-
-			var out types.WhoisHayt
+			var out types.Whois
 			cdc.MustUnmarshalJSON(res, &out)
 			return cliCtx.PrintOutput(out)
 		},

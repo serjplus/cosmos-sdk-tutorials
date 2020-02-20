@@ -1,10 +1,10 @@
 package keeper
 
 import (
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/bank"
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk/codec"
+	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/serjplus/cosmos-sdk/x/bank"
 )
 
 // Keeper maintains the link to storage and exposes getter/setter methods for the various parts of the state machine
@@ -28,10 +28,10 @@ func NewKeeper(coinKeeper bank.Keeper, storeKey sdk.StoreKey, cdc *codec.Codec) 
 // Gets the entire Whois metadata struct for a name
 func (k Keeper) GetWhois(ctx sdk.Context, hayt string) types.Whois {
 	store := ctx.KVStore(k.storeKey)
-	if !k.IsNamePresent(ctx, name) {
+	if !k.IsNamePresent(ctx, hayt) {
 		return types.NewWhois()
 	}
-	bz := store.Get([]byte(name))
+	bz := store.Get([]byte(hayt))
 	var whois types.Whois
 	k.cdc.MustUnmarshalBinaryBare(bz, &whois)
 	return whois
@@ -43,13 +43,13 @@ func (k Keeper) SetWhois(ctx sdk.Context, hayt string, whois types.Whois) {
 		return
 	}
 	store := ctx.KVStore(k.storeKey)
-	store.Set([]byte(name), k.cdc.MustMarshalBinaryBare(whois))
+	store.Set([]byte(hayt), k.cdc.MustMarshalBinaryBare(whois))
 }
 
 // Deletes the entire Whois metadata struct for a name
 func (k Keeper) DeleteWhois(ctx sdk.Context, hayt string) {
 	store := ctx.KVStore(k.storeKey)
-	store.Delete([]byte(name))
+	store.Delete([]byte(hayt))
 }
 
 // ResolveName - returns the string that the hayt resolves to

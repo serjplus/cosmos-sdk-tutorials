@@ -3,7 +3,7 @@ package types
 import (
 	"testing"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 )
 
@@ -107,7 +107,7 @@ func TestMsgBuyNameGetSignBytes(t *testing.T) {
 
 func TestMsgDeleteHayt(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgDeleteHayt(hayt, acc)
+	var msg = NewMsgDeleteHayt(hayt, acc, haytownername)
 
 	require.Equal(t, msg.Route(), RouterKey)
 	require.Equal(t, msg.Type(), "delete_hayt")
@@ -122,8 +122,8 @@ func TestMsgDeleteNameValidation(t *testing.T) {
 		valid bool
 		tx    MsgDeleteHayt
 	}{
-		{true, NewMsgDeleteHayt(hayt, acc)},
-		{true, NewMsgDeleteHayt(hayt2, acc2)},
+		{true, NewMsgDeleteHayt(hayt, acc, haytownername)},
+		{true, NewMsgDeleteHayt(hayt2, acc2, haytownername)},
 	}
 
 	for _, tc := range cases {
@@ -138,7 +138,7 @@ func TestMsgDeleteNameValidation(t *testing.T) {
 
 func TestMsgDeleteNameGetSignBytes(t *testing.T) {
 	acc := sdk.AccAddress([]byte("me"))
-	var msg = NewMsgDeleteHayt(hayt, acc)
+	var msg = NewMsgDeleteHayt(hayt, acc, haytownername)
 	res := msg.GetSignBytes()
 
 	expected := `{"type":"haytservice/DeleteHayt","value":{"hayt":"maTurtle","owner":"cosmos1d4js690r9j"}}`

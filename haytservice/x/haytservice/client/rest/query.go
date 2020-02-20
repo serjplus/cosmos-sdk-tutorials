@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
+	"github.com/serjplus/cosmos-sdk/client/context"
 
-	"github.com/cosmos/cosmos-sdk/types/rest"
+	"github.com/serjplus/cosmos-sdk/types/rest"
 
 	"github.com/gorilla/mux"
 )
 
-func resolveNameHandler(cliCtx context.CLIContext, storeName string) http.HandlerFunc {
+func resolveHaytHandler(cliCtx context.CLIContext, storeName string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
 		paramType := vars[restName]

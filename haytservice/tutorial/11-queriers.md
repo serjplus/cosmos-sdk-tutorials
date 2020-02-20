@@ -24,10 +24,10 @@ You will see `NewQuerier` already defined, this function acts as a sub-router fo
 package keeper
 
 import (
-	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/serjplus/cosmos-sdk/codec"
 	"github.com/[user]/[repo]/x/nameservice/internal/types"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/serjplus/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

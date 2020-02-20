@@ -21,19 +21,19 @@ import (
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"
 
-	bam "github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	distr "github.com/cosmos/cosmos-sdk/x/distribution"
-	"github.com/cosmos/cosmos-sdk/x/genaccounts"
-	"github.com/cosmos/cosmos-sdk/x/genutil"
-	"github.com/cosmos/cosmos-sdk/x/params"
-	"github.com/cosmos/cosmos-sdk/x/slashing"
-	"github.com/cosmos/cosmos-sdk/x/staking"
-	"github.com/cosmos/cosmos-sdk/x/supply"
+	bam "github.com/serjplus/cosmos-sdk/baseapp"
+	"github.com/serjplus/cosmos-sdk/codec"
+	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/serjplus/cosmos-sdk/types/module"
+	"github.com/serjplus/cosmos-sdk/x/auth"
+	"github.com/serjplus/cosmos-sdk/x/bank"
+	distr "github.com/serjplus/cosmos-sdk/x/distribution"
+	"github.com/serjplus/cosmos-sdk/x/genaccounts"
+	"github.com/serjplus/cosmos-sdk/x/genutil"
+	"github.com/serjplus/cosmos-sdk/x/params"
+	"github.com/serjplus/cosmos-sdk/x/slashing"
+	"github.com/serjplus/cosmos-sdk/x/staking"
+	"github.com/serjplus/cosmos-sdk/x/supply"
 
 	"github.com/cosmos/sdk-tutorials/nameservice/x/nameservice"
 )
@@ -358,7 +358,7 @@ func (app *nameServiceApp) ExportAppStateAndValidators(forZeroHeight bool, jailW
 }
 ```
 
-Finally add a helper function to generate an amino [`*codec.Codec`](https://godoc.org/github.com/cosmos/cosmos-sdk/codec#Codec) that properly registers all of the modules used in your application:
+Finally add a helper function to generate an amino [`*codec.Codec`](https://godoc.org/github.com/serjplus/cosmos-sdk/codec#Codec) that properly registers all of the modules used in your application:
 
 ```go
 // MakeCodec generates the necessary codecs for Amino

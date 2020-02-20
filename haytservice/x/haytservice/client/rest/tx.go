@@ -3,12 +3,12 @@ package rest
 import (
 	"net/http"
 
-	"github.com/cosmos/cosmos-sdk/client/context"
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
+	"github.com/serjplus/cosmos-sdk/client/context"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/rest"
-	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
+	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/serjplus/cosmos-sdk/types/rest"
+	"github.com/serjplus/cosmos-sdk/x/auth/client/utils"
 )
 
 type buyHaytReq struct {
@@ -19,7 +19,7 @@ type buyHaytReq struct {
 	HaytOwnerName string       `json:"haytownername"`
 }
 
-func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
+func buyHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var req buyHaytReq
 
@@ -58,10 +58,11 @@ func buyNameHandler(cliCtx context.CLIContext) http.HandlerFunc {
 }
 
 type setHaytReq struct {
-	BaseReq rest.BaseReq `json:"base_req"`
-	Hayt    string       `json:"hayt"`
-	Value   string       `json:"value"`
-	Owner   string       `json:"owner"`
+	BaseReq       rest.BaseReq `json:"base_req"`
+	Hayt          string       `json:"hayt"`
+	Value         string       `json:"value"`
+	Owner         string       `json:"owner"`
+	HaytOwnerName string       `json:"haytownername"`
 }
 
 func setHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
@@ -84,7 +85,7 @@ func setHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgSetHayt(req.Hayt, req.Value, addr)
+		msg := types.NewMsgSetHayt(req.Hayt, req.Value, addr, req.HaytOwnerName)
 		err = msg.ValidateBasic()
 		if err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
@@ -96,9 +97,10 @@ func setHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 }
 
 type deleteHaytReq struct {
-	BaseReq rest.BaseReq `json:"base_req"`
-	Hayt    string       `json:"hayt"`
-	Owner   string       `json:"owner"`
+	BaseReq       rest.BaseReq `json:"base_req"`
+	Hayt          string       `json:"hayt"`
+	Owner         string       `json:"owner"`
+	HaytOwnerName string       `json:"haytownername"`
 }
 
 func deleteHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
@@ -121,7 +123,7 @@ func deleteHaytHandler(cliCtx context.CLIContext) http.HandlerFunc {
 		}
 
 		// create the message
-		msg := types.NewMsgDeleteHayt(req.Name, addr)
+		msg := types.NewMsgDeleteHayt(req.Hayt, addr, req.HaytOwnerName)
 		err = msg.ValidateBasic()
 		if err := msg.ValidateBasic(); err != nil {
 			rest.WriteErrorResponse(w, http.StatusBadRequest, err.Error())
