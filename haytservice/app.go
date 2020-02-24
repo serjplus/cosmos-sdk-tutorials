@@ -30,7 +30,7 @@ import (
 const appName = "haytservice"
 
 var (
-	// default home directories for the application CLI
+	/* default home directories for the application CLI*/
 	DefaultCLIHome = os.ExpandEnv("$HOME/.nscli")
 
 	// DefaultNodeHome sets the folder where the applcation data and configuration will be stored
