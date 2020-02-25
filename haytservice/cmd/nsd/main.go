@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/serjplus/cosmos-sdk/server"
-	"github.com/serjplus/cosmos-sdk/x/genaccounts"
-	genaccscli "github.com/serjplus/cosmos-sdk/x/genaccounts/client/cli"
-	"github.com/serjplus/cosmos-sdk/x/staking"
+	"github.com/cosmos/cosmos-sdk/server"
+	"github.com/cosmos/cosmos-sdk/x/genaccounts"
+	genaccscli "github.com/cosmos/cosmos-sdk/x/genaccounts/client/cli"
+	"github.com/cosmos/cosmos-sdk/x/staking"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -15,9 +15,9 @@ import (
 	"github.com/tendermint/tendermint/libs/log"
 
 	app "github.com/serjplus/cosmos-sdk-tutorials/haytservice"
-	"github.com/serjplus/cosmos-sdk/baseapp"
-	sdk "github.com/serjplus/cosmos-sdk/types"
-	genutilcli "github.com/serjplus/cosmos-sdk/x/genutil/client/cli"
+	"github.com/cosmos/cosmos-sdk/baseapp"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 	dbm "github.com/tendermint/tm-db"

@@ -2,9 +2,9 @@ package keeper
 
 import (
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
-	"github.com/serjplus/cosmos-sdk/codec"
+	"github.com/cosmos/cosmos-sdk/codec"
 
-	sdk "github.com/serjplus/cosmos-sdk/types"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

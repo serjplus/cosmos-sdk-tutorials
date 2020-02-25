@@ -11,26 +11,26 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice"
-	bam "github.com/serjplus/cosmos-sdk/baseapp"
-	"github.com/serjplus/cosmos-sdk/codec"
-	sdk "github.com/serjplus/cosmos-sdk/types"
-	"github.com/serjplus/cosmos-sdk/types/module"
-	"github.com/serjplus/cosmos-sdk/version"
-	"github.com/serjplus/cosmos-sdk/x/auth"
-	"github.com/serjplus/cosmos-sdk/x/bank"
-	distr "github.com/serjplus/cosmos-sdk/x/distribution"
-	"github.com/serjplus/cosmos-sdk/x/genaccounts"
-	"github.com/serjplus/cosmos-sdk/x/genutil"
-	"github.com/serjplus/cosmos-sdk/x/params"
-	"github.com/serjplus/cosmos-sdk/x/slashing"
-	"github.com/serjplus/cosmos-sdk/x/staking"
-	"github.com/serjplus/cosmos-sdk/x/supply"
+	bam "github.com/cosmos/cosmos-sdk/baseapp"
+	"github.com/cosmos/cosmos-sdk/codec"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/cosmos/cosmos-sdk/version"
+	"github.com/cosmos/cosmos-sdk/x/auth"
+	"github.com/cosmos/cosmos-sdk/x/bank"
+	distr "github.com/cosmos/cosmos-sdk/x/distribution"
+	"github.com/cosmos/cosmos-sdk/x/genaccounts"
+	"github.com/cosmos/cosmos-sdk/x/genutil"
+	"github.com/cosmos/cosmos-sdk/x/params"
+	"github.com/cosmos/cosmos-sdk/x/slashing"
+	"github.com/cosmos/cosmos-sdk/x/staking"
+	"github.com/cosmos/cosmos-sdk/x/supply"
 )
 
 const appName = "haytservice"
 
 var (
-	/* default home directories for the application CLI*/
+	// default home directories for the application CLI
 	DefaultCLIHome = os.ExpandEnv("$HOME/.nscli")
 
 	// DefaultNodeHome sets the folder where the applcation data and configuration will be stored

@@ -8,12 +8,12 @@ import (
 
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/client/cli"
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/client/rest"
-	"github.com/serjplus/cosmos-sdk/codec"
-	"github.com/serjplus/cosmos-sdk/types/module"
-	"github.com/serjplus/cosmos-sdk/x/bank"
+	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/cosmos/cosmos-sdk/x/bank"
 
-	"github.com/serjplus/cosmos-sdk/client/context"
-	sdk "github.com/serjplus/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/client/context"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

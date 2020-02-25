@@ -2,9 +2,9 @@ package keeper
 
 import (
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
-	"github.com/serjplus/cosmos-sdk/codec"
-	sdk "github.com/serjplus/cosmos-sdk/types"
-	"github.com/serjplus/cosmos-sdk/x/bank"
+	"github.com/cosmos/cosmos-sdk/codec"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/x/bank"
 )
 
 // Keeper maintains the link to storage and exposes getter/setter methods for the various parts of the state machine

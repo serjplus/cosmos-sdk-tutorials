@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
-	"github.com/serjplus/cosmos-sdk/client/context"
+	"github.com/cosmos/cosmos-sdk/client/context"
 
-	sdk "github.com/serjplus/cosmos-sdk/types"
-	"github.com/serjplus/cosmos-sdk/types/rest"
-	"github.com/serjplus/cosmos-sdk/x/auth/client/utils"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/types/rest"
+	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
 )
 
 type buyHaytReq struct {

@@ -4,12 +4,12 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/serjplus/cosmos-sdk-tutorials/haytservice/x/haytservice/internal/types"
-	"github.com/serjplus/cosmos-sdk/client"
-	"github.com/serjplus/cosmos-sdk/client/context"
-	"github.com/serjplus/cosmos-sdk/codec"
-	sdk "github.com/serjplus/cosmos-sdk/types"
-	"github.com/serjplus/cosmos-sdk/x/auth"
-	"github.com/serjplus/cosmos-sdk/x/auth/client/utils"
+	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/cosmos/cosmos-sdk/client/context"
+	"github.com/cosmos/cosmos-sdk/codec"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/cosmos/cosmos-sdk/x/auth"
+	"github.com/cosmos/cosmos-sdk/x/auth/client/utils"
 )
 
 /*
